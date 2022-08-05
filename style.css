@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: RGB(247, 202, 201);
 }
 
 .navbar{
@@ -45,7 +46,15 @@ body{
 
 button{
     height: 5vh;
+    width: 100px;
     cursor: pointer;
+}
+
+#answer{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    background-color: #6B5B95;
 }
 
 input:invalid{

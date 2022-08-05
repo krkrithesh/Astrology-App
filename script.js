@@ -51,9 +51,10 @@ function processingLoad(arr){
 //Adding answer to webpage
 function addToDOM(ans){
     var html="";
-    for(var i=0;i<ans.length;i++)
+    html+=`${ans[0]}`;
+    for(var i=1;i<ans.length;i++)
     {
-        html+=ans[i];
+        html+=", "+ans[i];
     }
     document.getElementById("answer").innerHTML=html;
 }
