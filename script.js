@@ -26,7 +26,7 @@ function collectInput(){
     ans=[];
 }
 
-//the main logic
+//The main logic
 function processingLoad(arr){
     var cnt= new Array(13).fill(0);
     for(var i of arr)
@@ -58,13 +58,13 @@ function addToDOM(ans){
     document.getElementById("answer").innerHTML=html;
 }
 
-//helper for pushing
+//Helper for pushing
 function multiplePush(ans,p1,times){
     while(times-->0)
         ans.push(p1);
 }
 
-//main logic for clearing
+//Main logic for clearing
 function clearInput(){
     var inputs=document.getElementsByClassName("box");
     for(var i=0;i<inputs.length;i++)
