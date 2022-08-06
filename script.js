@@ -1,26 +1,51 @@
 var arr= [];
 var ans= [];
 
-var but=document.getElementsByTagName("button");
+var topEnter=document.getElementById("top-enter");
+var topClear=document.getElementById("top-clear");
+var bottomEnter=document.getElementById("bottom-enter");
+var bottomClear=document.getElementById("bottom-clear");
 
 //Enter
-but[0].addEventListener("click", () => {
-    collectInput();
+topEnter.addEventListener("click", () => {
+    collectTopInput();
     arr=[];
 });
 
 //Clear
-but[1].addEventListener("click",() => {
-    clearInput();
+topClear.addEventListener("click",() => {
+    clearTopInput();
+    arr=[];
+});
+
+bottomEnter.addEventListener("click", () => {
+    collectBottomInput();
+    arr=[];
+});
+
+bottomClear.addEventListener("click", () => {
+    clearBottomInput();
     arr=[];
 });
 
 //Collecting input from boxes
-function collectInput(){
+function collectTopInput(){
     var inputs=document.getElementsByClassName("box");
     for(var i=0;i<inputs.length;i++)
     {
         arr.push(parseInt(inputs[i].value));
+    }
+    processingLoad(arr);
+    ans=[];
+}
+
+//Collecting input from plain text
+function collectBottomInput(){
+    var boxText=document.getElementById("large-box").value;
+    var line=boxText.trim().split(/\s+/);
+    for(var i=0;i<line.length;i++)
+    {
+        arr.push(parseInt(line[i]));
     }
     processingLoad(arr);
     ans=[];
@@ -66,10 +91,18 @@ function multiplePush(ans,p1,times){
 }
 
 //Main logic for clearing
-function clearInput(){
+function clearTopInput(){
     var inputs=document.getElementsByClassName("box");
     for(var i=0;i<inputs.length;i++)
         inputs[i].value="";
+    var cl=document.getElementById("answer");
+    cl.replaceChildren();
+}
+
+//Main logic for clearing plain text
+function clearBottomInput(){
+    var clBot=document.getElementById("large-box");
+    clBot.value="";
     var cl=document.getElementById("answer");
     cl.replaceChildren();
 }

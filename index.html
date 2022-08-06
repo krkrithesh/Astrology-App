@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">Calculator</div>
+    <div class="navbar">Astrology App</div>
     <div class="container">
         <div class="row">
             <span class="name">Sun</span>
@@ -146,10 +146,21 @@
             <input type="text" class="box" maxlength="2">
         </div>
         <div class="buttons">
-            <button type="button" style="margin-right: 20px">Enter</button>
-            <button type="button">Clear</button>
+            <button id="top-enter" type="button" style="margin-right: 20px">Enter</button>
+            <button id="top-clear" type="button">Clear</button>
         </div>
         <div id="answer"></div>
+        <div id="or">
+            OR
+        </div>
+        <div id="second">
+            <span id="enter">Enter as plain text:</span>
+            <input id=large-box type="text">
+        </div>
+        <div class="buttons">
+            <button id="bottom-enter" type="button" style="margin-right: 20px">Enter</button>
+            <button id="bottom-clear" type="button">Clear</button>
+        </div>
     </div>
     <script type= "module" src="script.js"></script>
 </body>
