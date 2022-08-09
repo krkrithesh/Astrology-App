@@ -3,13 +3,59 @@ var ans= [];
 
 var topEnter=document.getElementById("top-enter");
 var topClear=document.getElementById("top-clear");
-var bottomEnter=document.getElementById("bottom-enter");
-var bottomClear=document.getElementById("bottom-clear");
+var topClearAll=document.getElementById("top-clear-all");
+
+
+var sunButton=document.getElementById("sun");
+sunButton.addEventListener("click", () => {
+    collectInput("sun");
+})
+
+var moonButton=document.getElementById("moon");
+moonButton.addEventListener("click", () => {
+    collectInput("moon");
+})
+
+var marsButton=document.getElementById("mars");
+marsButton.addEventListener("click", () => {
+    collectInput("mars");
+})
+
+var mercuryButton=document.getElementById("mercury");
+mercuryButton.addEventListener("click", () => {
+    collectInput("mercury");
+})
+
+var jupiterButton=document.getElementById("jupiter");
+jupiterButton.addEventListener("click", () => {
+    collectInput("jupiter");
+})
+
+var venusButton=document.getElementById("venus");
+venusButton.addEventListener("click", () => {
+    collectInput("venus");
+})
+
+var saturnButton=document.getElementById("saturn");
+saturnButton.addEventListener("click", () => {
+    collectInput("saturn");
+})
+
+var rahuButton=document.getElementById("rahu");
+rahuButton.addEventListener("click", () => {
+    collectInput("rahu");
+})
+
+var ketuButton=document.getElementById("ketu");
+ketuButton.addEventListener("click", () => {
+    collectInput("ketu");
+})
 
 //Enter
 topEnter.addEventListener("click", () => {
-    collectTopInput();
-    arr=[];
+    processingLoad(arr);
+    //arr=[];
+    ans=[];
 });
 
 //Clear
@@ -18,37 +64,40 @@ topClear.addEventListener("click",() => {
     arr=[];
 });
 
-bottomEnter.addEventListener("click", () => {
-    collectBottomInput();
-    arr=[];
-});
-
-bottomClear.addEventListener("click", () => {
-    clearBottomInput();
+//Clear all
+topClearAll.addEventListener("click",() => {
+    clearAllInput();
     arr=[];
 });
 
 //Collecting input from boxes
-function collectTopInput(){
-    var inputs=document.getElementsByClassName("box");
+function collectInput(starName){
+    var inputs=document.getElementsByClassName(`${starName}`);
     for(var i=0;i<inputs.length;i++)
     {
         arr.push(parseInt(inputs[i].value));
     }
-    processingLoad(arr);
-    ans=[];
+    var dispName=starName.charAt(0).toUpperCase() + starName.slice(1)+" ";
+    document.getElementById("input-box").value+=dispName;
 }
 
-//Collecting input from plain text
-function collectBottomInput(){
-    var boxText=document.getElementById("large-box").value;
-    var line=boxText.trim().split(/\s+/);
-    for(var i=0;i<line.length;i++)
-    {
-        arr.push(parseInt(line[i]));
-    }
-    processingLoad(arr);
-    ans=[];
+//Main logic for clearing
+function clearTopInput(){
+    arr=[];
+    var cl=document.getElementById("answer");
+    var cl2=document.getElementById("input-box");
+    cl.replaceChildren();
+    cl2.value="";
+}
+
+function clearAllInput(){
+    var inputs=document.getElementsByClassName("box");
+    for(var i=0;i<inputs.length;i++)
+        inputs[i].value="";
+    var cl=document.getElementById("answer");
+    var cl2=document.getElementById("input-box");
+    cl.replaceChildren();
+    cl2.value="";
 }
 
 //The main logic
@@ -88,21 +137,4 @@ function addToDOM(ans){
 function multiplePush(ans,p1,times){
     while(times-->0)
         ans.push(p1);
-}
-
-//Main logic for clearing
-function clearTopInput(){
-    var inputs=document.getElementsByClassName("box");
-    for(var i=0;i<inputs.length;i++)
-        inputs[i].value="";
-    var cl=document.getElementById("answer");
-    cl.replaceChildren();
-}
-
-//Main logic for clearing plain text
-function clearBottomInput(){
-    var clBot=document.getElementById("large-box");
-    clBot.value="";
-    var cl=document.getElementById("answer");
-    cl.replaceChildren();
 }
