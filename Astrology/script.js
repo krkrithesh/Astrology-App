@@ -5,7 +5,6 @@ var topEnter=document.getElementById("top-enter");
 var topClear=document.getElementById("top-clear");
 var topClearAll=document.getElementById("top-clear-all");
 
-
 var sunButton=document.getElementById("sun");
 sunButton.addEventListener("click", () => {
     collectInput("sun");
